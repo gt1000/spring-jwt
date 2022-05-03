@@ -2,6 +2,11 @@ server:
   port: 80
   servlet:
     register-default-servlet: true
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 spring:
   main:
@@ -22,6 +27,12 @@ spring:
       #connection-timeout: 30000
       #idle-timeout: 600000
       #validation-timeout: 40000
+
+# 의존성만 추가해 주면... 기본으로 잡힘, 생략 가능, java configuration 으로 설정
+#  mvc:
+#    view:
+#      prefix: /templates/
+#      suffix: .mustache
 
   jpa:
     properties:
