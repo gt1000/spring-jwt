@@ -30,24 +30,43 @@ ext {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
-	implementation 'org.springframework.boot:spring-boot-starter-mustache'
-//	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-	implementation 'com.auth0:java-jwt:3.19.1'
+	implementation(
+			'org.springframework.boot:spring-boot-starter-data-jpa',
+			'org.springframework.boot:spring-boot-starter-hateoas',
+			'org.springframework.boot:spring-boot-starter-mustache',
+//			'org.springframework.boot:spring-boot-starter-security',
 
+			'org.springframework.security:spring-security-core:5.6.3',
+
+			'org.springframework.boot:spring-boot-starter-validation',
+			'org.springframework.boot:spring-boot-starter-web',
+			'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2',
+			'com.auth0:java-jwt:3.19.1',
+
+			'org.mapstruct:mapstruct:1.4.2.Final',
+			'org.projectlombok:lombok-mapstruct-binding:0.2.0',
+			'org.projectlombok:lombok:1.18.24'
+	)
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	annotationProcessor 'org.projectlombok:lombok'
+
+	annotationProcessor(
+			'org.mapstruct:mapstruct-processor:1.4.2.Final',
+			'org.projectlombok:lombok-mapstruct-binding:0.2.0',
+			'org.projectlombok:lombok',
+			'org.springframework.boot:spring-boot-configuration-processor'
+	)
+
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 //	testImplementation 'org.springframework.security:spring-security-test'
+
+	testCompileOnly 'org.projectlombok:lombok'
+
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
