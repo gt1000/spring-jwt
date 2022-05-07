@@ -21,7 +21,7 @@ class MemberServiceImplTest {
     @DisplayName("사용자 조회")
     void member() {
         assertThrows(NotFoundMemberException.class, () -> {
-            MemberDto memberDto = memberService.findByMemberId(1L);
+            MemberDto memberDto = memberService.findByMemberId(111L);
             log.info("--------- memberDto = {}", memberDto);
         });
     }
